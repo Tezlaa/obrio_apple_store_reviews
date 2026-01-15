@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:9999/api/v1";
+import { BackendURL } from "./backendUrl.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("analyzeForm");
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         downloadBtn.style.display = "none";
 
         try {
-            const response = await fetch(`${API_BASE_URL}/reviews/analyze`, {
+            const response = await fetch(`${BackendURL}/reviews/analyze`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!lastRequestData) return;
 
         try {
-            const response = await fetch(`${API_BASE_URL}/reviews/download`, {
+            const response = await fetch(`${BackendURL}/reviews/download`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         reviewsList.innerHTML = "";
         data.reviews_sample.forEach((review) => {
             const li = document.createElement("li");
-            li.innerHTML = `<strong>${review.rating}★ ${review.title}</strong>: ${review.review}`;
+            li.innerHTML = `<strong>${review.rating}* ${review.title}</strong>: ${review.review}`;
             reviewsList.appendChild(li);
         });
     }

@@ -52,6 +52,11 @@ This project provides a robust API for collecting, processing, and analyzing rev
     ```
     `PASSWORD` is used for the demo dashboard. (for avoid unauthorized access. Someone will spend my tokens :D )
 
+    Also Set up demo backend url in `demo/backendUrl.js` for localy test.:
+    ```js
+    const BackendURL = "http://localhost:9999/api/v1";
+    ```
+
 3.  **Start the services:**
 
     ```bash

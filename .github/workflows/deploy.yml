@@ -23,7 +23,7 @@ jobs:
             - name: Pull and restart containers
               run: |
                   ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
-                    cd ../var/www/orbio_test_task
+                    cd orbio_test_task
                     git pull origin main
                     docker-compose up -d --build
                   EOF
